@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="country"></h1>
+
+    <script>
+    let cursoDeHotmart = {
+            "Argentina":100,
+            "Colombia": 251000,
+            "Chile":50490,
+            "Mexico": 1174,
+            "Peru": 207,
+            "Spain":60,
+            "United States": 50,
+            "Ecuador":50,
+            "Bolivia":50,
+            "Costa Rica":50,
+            "El Salvador":50,
+            "Guatemala":50,
+            "Honduras":50,
+            "Panama":50,
+            "Puerto Rico":50,
+            "Uruguay":50,
+            "Portugal":50,
+        };
+
+        fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+        let countries = document.getElementById(`country`);
+        let price;
+        let pesos = "Pesos"
+        let euros = "Euros"
+        let soles = "Soles"
+        let dolares = "Dólares"
+        
+        switch (data.country_name) {
+            case "Argentina":
+                price = cursoDeHotmart[data.country_name];
+                countries.innerText = `${data.country_name} $${price} ${pesos}`;
+                break;
+            case "Colombia":
+                price = cursoDeHotmart[data.country_name];
+                countries.innerText = `${data.country_name} $${price} ${pesos}`;
+                break;
+            case "Chile":
+                price = cursoDeHotmart[data.country_name];
+                countries.innerText = `${data.country_name} $${price} ${pesos}`;
+                break;
+            case "España":
+                price = cursoDeHotmart[data.country_name];
+                countries.innerText = `${data.country_name} $${price} ${euros}`;
+                break;
+            case "Mexico":
+                price = cursoDeHotmart[data.country_name];
+                countries.innerText = `${data.country_name} $${price} ${pesos}`;
+                break;
+            case "Peru":
+                price = cursoDeHotmart[data.country_name];
+                countries.innerText = `${data.country_name} $${price} ${soles}`;
+                break;
+            default:
+                price = document.getElementById("country");
+                countries.innerText = `El valor aproximado en ${data.country_name} es de 'USD' $${cursoDeHotmart["United States"]} ${dolares}`;;
+                break;
+        }
+    });
+
+        // fetch('https://ipapi.co/json/')
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         let countries = document.getElementById("country");
+        //         let price;
+        //         if (data.country_name === "Colombia") {
+        //             price = yogadesdecero[data.country_name];
+        //             countries.innerText = `Para Colombia, tu precio aproximado es de $${price} Pesos`;
+        //         } else if (data.country_name === "Mexico") {
+        //             price = yogadesdecero[data.country_name];
+        //             countries.innerText = `Para México, tu precio aproximado es de $${price} Pesos`;
+        //         } else if (data.country_name === "Chile") {
+        //             price = yogadesdecero[data.country_name];
+        //             countries.innerText = `Para Chile, tu precio aproximado es de $${price} Pesos`;
+        //         } else if (data.country_name === "Peru") {
+        //             price = yogadesdecero[data.country_name];
+        //             countries.innerText = `Para Perú, tu precio aproximado es de $${price} Soles`;
+        //         } else if (data.country_name === "Spain") {
+        //             price = yogadesdecero[data.country_name];
+        //             countries.innerText = `Para España, tu precio aproximado es de $${price} Euros`;
+        //         } else {
+        //             price = 50;
+        //             countries.innerText = `Para ${data.country_name}, tu precio aproximado es de $${price} Dólares`;
+        //         }
+        //     });
+</script>
+</body>
+
+</html>
